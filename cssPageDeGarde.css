@@ -1,0 +1,45 @@
+body{
+   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%); 
+   color: white;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   
+}
+.haut{
+display: flex;
+justify-content: center;   
+}
+
+
+.haut img{
+   width: 100px;
+   border-radius: 50%;
+}
+.menu{
+   display: flex;
+   justify-content: space-around;
+   
+}
+.menu div{
+   display: flex;
+}
+.menu img{
+   width:50px;
+}
+.menu a {
+   color: white;
+   text-decoration: none;
+
+}
+
+/*MAIN*/
+/*h1 centre*/
+main h1 { 
+   display: flex;
+   justify-content: center;
+}
+/*Couleur Theo*/
+span{
+   color: red;
+}
