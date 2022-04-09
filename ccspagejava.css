@@ -48,8 +48,12 @@ main div {
    align-items: center;
    flex-direction: column;
 }
+main div a {
+   display: flex;
+   justify-content: center;
+}
 main div img{
-   
+   align-items: center;
     width: 70%;
 
 }
