@@ -1,3 +1,19 @@
+/*FONT*/
+@font-face {
+   font-family: "test";
+   src: url(Image/Organic\ Relief.ttf);
+}
+
+h1{
+   font-family: "test";
+   font-size: larger;
+}
+div.menu{
+   font-family: "test";
+   font-size: larger;
+}
+/*FIN FONT*/
+/*MENU*/
 body{
    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%); 
    color: white;
@@ -28,11 +44,13 @@ justify-content: center;
    width:50px;
 }
 .menu a {
+   display: flex;
+   align-items: center;
    color: white;
    text-decoration: none;
 
 }
-
+/*FIN MENU*/
 /*MAIN*/
 /*h1 centre*/
 main h1 { 
@@ -43,3 +61,33 @@ main h1 {
 span{
    color: red;
 }
+
+/*case*/
+.parent {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   grid-template-rows: repeat(5, 1fr);
+   grid-column-gap: 0px;
+   grid-row-gap: 0px;
+  
+   }
+   
+   .div1 { grid-area: 3 / 1 / 5 / 2;
+      border: solid; 
+      }
+   .div1 h1{
+      display: flex;
+      justify-content: center;
+   }
+   .div2 { grid-area: 3 / 3 / 5 / 4; 
+      border: solid;}
+   .div2 h1{
+      display: flex;
+      justify-content: center;
+   }
+   .div3 { grid-area: 3 / 5 / 5 / 6; 
+      border: solid;}
+   .div3 h1{
+      display: flex;
+      justify-content: center;
+   }
