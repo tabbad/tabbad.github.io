@@ -25,6 +25,7 @@ body{
 .haut{
 display: flex;
 justify-content: center;   
+align-items: center;
 }
 
 
@@ -91,3 +92,18 @@ span{
       display: flex;
       justify-content: center;
    }
+/*BOUTON*/
+footer{
+   display: flex;
+   justify-content: center;
+}
+.styed{
+   border: solid;
+   background-color: transparent;
+   font-family: test;
+   font-size: larger;
+
+}
+:hover .styed{
+   cursor: pointer;
+}

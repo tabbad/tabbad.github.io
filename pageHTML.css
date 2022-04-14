@@ -27,6 +27,8 @@ body{
 .haut{
 display: flex;
 justify-content: center;   
+align-items: center;
+
 }
 
 
@@ -69,4 +71,20 @@ main a img{
 
     width: 50%;
 
+}
+/*BOUTON*/
+footer{
+   display: flex;
+   justify-content: center;
+}
+.styed{
+   border: solid;
+   margin-top: 5px;
+   background-color: transparent;
+   font-family: test;
+   font-size: larger;
+
+}
+:hover .styed{
+   cursor: pointer;
 }
