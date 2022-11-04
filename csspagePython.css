@@ -1,0 +1,57 @@
+/*FONT*/
+@font-face {
+    font-family: "test";
+    src: url(Image/Organic\ Relief.ttf);
+ }
+ 
+ h1{
+    font-family: "test";
+    font-size: larger;
+ }
+ div.menu{
+    font-family: "test";
+    font-size: larger;
+ }
+ /*FIN FONT*/
+ /*Menu */
+ body{
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);   color: white;
+     color: white;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+    
+     
+  }
+  .haut{
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+ 
+    }
+    
+    
+    .haut img{
+       width: 100px;
+       border-radius: 50%;
+    }
+    .menu{
+       display: flex;
+       justify-content: space-around;
+       
+    }
+    .menu div{
+       display: flex;
+    }
+    .menu img{
+       width:50px;
+    }
+    .menu a {
+       display: flex;
+       align-items: center;
+       color: white;
+       text-decoration: none;
+    
+    }
+    /*FIN MENU*/
+ 
