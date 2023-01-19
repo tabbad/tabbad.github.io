@@ -31,7 +31,6 @@ align-items: center;
 
 .haut img{
    width: 100px;
-   border-radius: 50%;
 }
 .menu{
    display: flex;
