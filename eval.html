@@ -1,0 +1,178 @@
+<html lang="fr">
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        
+        <div id="logo">
+            <img src="data/logoUNSS.png" alt="LogoUNSS">
+        </div>
+        <div id="title">
+            <h1>Formation Jeunes Offciels</h1>
+            <h2>Handball</h2>
+        </div>
+
+    <div id="menu">
+        <h2><a href="cours.html">Cours</a> </h2>
+        <h2> <a href="quiz.html">Quiz</a></h2>
+        <h2><a href="eval.html">Test</a></h2>
+    </div>
+</div>
+<div id="timer">Temps restant : <span id="countdown">20:00</span></div>
+
+<div id="quiz-container">
+    <h2>Mon Quiz HTML</h2>
+    <button id="start-quiz-button">Commencer le quiz</button>
+
+    <form  style="display: none;" id="quiz-form" onsubmit="return submitQuiz()">
+        <!-- Question 1 -->
+        <div class="question">
+            <p>1. Les lignes du terrain de hand-ball dans la plupart des gymnases sont de couleur : </p>
+            <label><input type="radio" name="q1" value="a"> Rouge</label>
+            <label><input type="radio" name="q1" value="b"> Jaune</label>
+            <label><input type="radio" name="q1" value="c"> Blanche</label>
+        </div>
+        
+        <!-- Question 2 -->
+        <div class="question">
+            <p>2. Où remet-on le ballon en jeu après une faute sifflée ?</p>
+            <label><input type="radio" name="q2" value="a"> Sur le côté du terrain</label>
+            <label><input type="radio" name="q2" value="b"> A l’endroit de la faute</label>
+            <label><input type="radio" name="q2" value="c"> Depuis la zone du gardien</label>
+        </div>
+        <div class="question">
+            <p>3. Le but est accordé quand le ballon :</p>
+            <label><input type="radio" name="q3" value="a"> Est sur la ligne</label>
+            <label><input type="radio" name="q3" value="b"> A franchi la moitié de la ligne</label>
+            <label><input type="radio" name="q3" value="c"> Franchit complètement la ligne</label>
+        </div>
+        <div class="question">
+            <p>4. Je ne peux pas garder le ballon dans la main à l’arrêt :</p>
+            <label><input type="radio" name="q4" value="a"> Plus de trois secondes</label>
+            <label><input type="radio" name="q4" value="b"> Plus de cinq secondes</label>
+            <label><input type="radio" name="q4" value="c"> Plus de dix secondes</label>
+        </div>
+        <div class="question">
+            <p>5. Lors d’une remise en jeu, les joueurs adverses doivent se trouver à :</p>
+            <label><input type="radio" name="q5" value="a"> Un mètre du joueur exécutant la remise en jeu</label>
+            <label><input type="radio" name="q5" value="b"> Trois mètres du joueur exécutant la remise en jeu </label>
+            <label><input type="radio" name="q5" value="c"> Cela n’a pas d’importance </label>
+        </div>
+        <div class="question">
+            <p>6. Lors d’une touche, le joueur tire et marque le but :</p>
+            <label><input type="radio" name="q6" value="a"> Le but est refusé </label>
+            <label><input type="radio" name="q6" value="b"> La touche est donnée à l’adversaire</label>
+            <label><input type="radio" name="q6" value="c"> Le but est accepté</label>
+        </div>
+        <div class="question">
+            <p>7. Le ballon touche le pied, y a- t- il faute ?</p>
+            <label><input type="radio" name="q7" value="a"> Oui</label>
+            <label><input type="radio" name="q7" value="b"> Non</label>
+        </div>
+        <div class="question">
+            <p>8. Au début de la rencontre, comment est attribué le ballon d’engagement à une équipe ?</p>
+            <label><input type="radio" name="q8" value="a"> Par tirage au sort</label>
+            <label><input type="radio" name="q8" value="b"> A l’équipe invitée</label>
+            <label><input type="radio" name="q8" value="c"> A l’équipe évoluant à domicile</label>
+        </div>
+        <div class="question">
+            <p>9. Que siffle l’arbitre si un attaquant pénètre dans la zone du gardien ? </p>
+            <label><input type="radio" name="q9" value="a"> Jet de 7m (7 mètres) </label>
+            <label><input type="radio" name="q9" value="b"> « Zone » et ballon au gardien </label>
+            <label><input type="radio" name="q9" value="c"> Jet franc aux 9m (9 mètres) </label>
+        </div>
+        <p>Minimes :</p>
+        <div class="question">
+            <p>10.  Lors d’un engagement du milieu de terrain, après un but, les joueurs adverses peuvent se tenir dans les 
+                deux moitiés de terrain ? </p>
+            <label><input type="radio" name="q10" value="a"> Vrai</label>
+            <label><input type="radio" name="q10" value="b"> Faux</label>
+        </div>
+        <p>Benjamins :</p>
+        <div class="question">
+            <p>10. Après un but, l’engagement se fait depuis le gardien de but. Les attaquants ont le droit d’intercepter le 
+                ballon dès la relance du gardien ?</p>
+            <label><input type="radio" name="q11" value="a"> Vrai</label>
+            <label><input type="radio" name="q11" value="b"> Faux</label>
+        </div>
+        <div class="question">
+            <p>11. Un joueur de champ fait une passe à son gardien, <strong>SORTI DE SA ZONE.</strong>  L’arbitre siffle : </p>
+            <label><input type="radio" name="q12" value="a"> Rien</label>
+            <label><input type="radio" name="q12" value="b"> Un jet de 7m</label>
+            <label><input type="radio" name="q12" value="c"> Un jet franc</label>
+        </div>
+        <div class="question">
+            <p>12. Un joueur ne pose pas son pied sur la ligne de touche pour la remise en jeu :</p>
+            <label><input type="radio" name="q13" value="a"> La remise en jeu est pour l’équipe adverse</label>
+            <label><input type="radio" name="q13" value="b"> La remise en jeu est à refaire après correction</label>
+            <label><input type="radio" name="q13" value="c"> Le jeu se poursuit</label>
+        </div>
+        <div class="question">
+            <p>13. Si un joueur fait une grosse faute, Peut- il être exclu du terrain ?</p>
+            <label><input type="radio" name="q14" value="a"> Oui</label>
+            <label><input type="radio" name="q14" value="b"> Non</label>
+        </div>
+        <div class="question">
+            <p>14. En match, chaque match est dirigé par deux arbitres assistés par un (ou des) secrétaire(s), un 
+                chronométreur et parfois des arbitres de zone.</p>
+            <label><input type="radio" name="q15" value="a"> Vrai</label>
+            <label><input type="radio" name="q15" value="b"> Faux</label>
+        </div>
+        <div class="question">
+            <p>15. Peut-on dribbler à 2 mains ?</p>
+            <label><input type="radio" name="q16" value="a"> Oui</label>
+            <label><input type="radio" name="q16" value="b"> Non</label>
+        </div>
+        <div class="question">
+            <p>15. Peut- on changer de main en dribblant ?</p>
+            <label><input type="radio" name="q17" value="a"> Oui</label>
+            <label><input type="radio" name="q17" value="b"> Non</label>
+        </div>
+        <div class="question">
+            <p>16. Un but est confirmé par :</p>
+            <label><input type="radio" name="q18" value="a"> Un coup de sifflet</label>
+            <label><input type="radio" name="q18" value="b"> Deux coups de sifflet </label>
+            <label><input type="radio" name="q18" value="c"> Trois coups de sifflet</label>
+        </div>
+        <div class="question">
+            <p>17. Un joueur tirant dans les 9m est poussé par un défenseur dans le dos ou sur le côté. L’arbitre siffle ?</p>
+            <label><input type="radio" name="q19" value="a"> Jet franc à 9m </label>
+            <label><input type="radio" name="q19" value="b"> Jet de 7m </label>
+            <label><input type="radio" name="q19" value="c"> Jet de 7m + exclusion temporaire du défenseur</label>
+        </div>
+        <div class="question">
+            <p>18. Que doit faire le joueur qui a le ballon quand l’arbitre siffle une faute contre son équipe ? </p>
+            <label><input type="radio" name="q20" value="a"> Il doit poser le ballon au sol </label>
+            <label><input type="radio" name="q20" value="b"> Il lance le ballon à l’arbitre</label>
+            <label><input type="radio" name="q20" value="c"> Il va se replacer en défense puis donne le ballon aux adversaires</label>
+        </div>
+        <div class="question">
+            <p>19. Le début d’une partie est signalé par le coup de sifflet de l’arbitre. Comment est signalée <strong>la fin</strong> de la partie ?</p>
+            <label><input type="radio" name="q21" value="a"> Par un coup de sifflet de l’arbitre</label>
+            <label><input type="radio" name="q21" value="b"> Par deux coups de sifflet de l’arbitre</label>
+            <label><input type="radio" name="q21" value="c"> Par trois coups de sifflet de l’arbitre</label>
+        </div>
+        <div class="question">
+            <p>20. Lorsqu’une faute est commise par la défense, entre la ligne des 9m et la zone du gardien, le ballon est rendu 
+                à l’attaque. Où s’effectue le jet franc? </p>
+            <label><input type="radio" name="q22" value="a"> A l’endroit de la faute </label>
+            <label><input type="radio" name="q22" value="b"> A 9m</label>
+            <label><input type="radio" name="q22" value="c"> A 7m </label>
+        </div>
+       
+        
+        <!-- Ajoutez plus de questions selon vos besoins -->
+        
+        <input type="submit" value="Soumettre" id="submit-button">
+    </form>
+    <div id="result"></div>
+</div>
+<script src="script.js"></script>
+    
+</body>
+</html>
