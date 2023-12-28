@@ -153,29 +153,27 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 */
 function VerifConnexion(id,mdp){
-console.log("TTTTTTTTTTTTTTTTTTTT")
+    console.log(id + " " + mdp);
+    var requestURL =
+    "https://tabbad.github.io/account.json";
+    var request = new XMLHttpRequest();
+
+    request.open("GET", requestURL);
+    request.responseType = "json";
+    request.send();
+    request.onload = function () {
+        var userJson = request.response;
+        userJson.account.forEach(function (user) {
+            if(user.name == id && userJson.password == mdp && user.score == null){
+                console.log("ok");
+            }
+        });
+    };
+
 // URL du fichier JSON
-const url = 'C:/Users/theoa/Desktop/portfolio supr/tabbad.github.io/accounts.json';
 
-// Utilisation de fetch pour récupérer les données JSON
-fetch(url)
-  .then(response => {
-    // Vérifier si la requête HTTP a réussi
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    // Extraire les données JSON
-    return response.json();
-  })
-  .then(data => {
-    //data.nouvelleCle = 'Nouvelle valeur';
 
-    console.log(data);
 
-  })
-  .catch(error => {
-    console.error('Erreur lors de la récupération des données JSON :', error);
-  });
 
 /*
     for (let i = 0; i < users.length; i++) {
@@ -194,8 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var connexionDiv = document.getElementById('connexion');
 
     connexionButton.addEventListener('click', function () {
-        //VerifConnexion(document.getElementById('id').value,document.getElementById('mdp').value);
-        VerifConnexion("test","test");
+        VerifConnexion(document.getElementById('Identifiant').value,document.getElementById('mdp').value);
         startButton.style.display = 'block';
         connexionDiv.style.display = 'none';
     });
