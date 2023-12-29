@@ -1,7 +1,6 @@
 
 var timer;
 
-
 var questions = [
     { question: "1 Les lignes du terrain de hand-ball dans la plupart des gymnases sont de couleur :", options: ["Rouge", "Jaune", "Blanche"], answer: "b" },
     { question: "2 Où remet-on le ballon en jeu après une faute sifflée ?", options: [" Sur le côté du terrain", " A l’endroit de la faute", "Depuis la zone du gardien"], answer: "b" },
@@ -145,15 +144,28 @@ function submitQuiz() {
     // Retourne false pour empêcher le formulaire de soumettre la page
     return false;
 }
-/*
-document.addEventListener("DOMContentLoaded", function () {
-    var tenMinutes = 5, // 10 minutes en secondes
-        display = document.getElementById('countdown');
-    startTimer(tenMinutes, display);
-});
-*/
+
+function updateUserScore(userJson){
+    var updateRequest =
+    "https://tabbad.github.io/account.json";
+    var updateRequest = new XMLHttpRequest();
+    updateRequest.open("PUT", updateRequest);
+    updateRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    updateRequest.send(JSON.stringify(userJson));
+
+    updateRequest.onload = function () {
+        if (updateRequest.status === 200) {
+            console.log("Modification enregistrée avec succès");
+        } else {
+            console.error("Erreur lors de l'enregistrement des modifications");
+        }
+    };
+}
+
+
 function VerifConnexion(id,mdp){
-    console.log(id + " " + mdp);
+    return new Promise((resolve, reject) => {
+
     var requestURL =
     "https://tabbad.github.io/account.json";
     var request = new XMLHttpRequest();
@@ -163,26 +175,20 @@ function VerifConnexion(id,mdp){
     request.send();
     request.onload = function () {
         var userJson = request.response;
+        var isUserValid = false;
         userJson.account.forEach(function (user) {
             if(user.name == id && userJson.password == mdp && user.score == null){
-                console.log("ok");
+                isUserValid = true;
+                user.score = 100;
             }
         });
+        resolve({ isUserValid, userJson });
+
     };
-
-// URL du fichier JSON
-
-
-
-
-/*
-    for (let i = 0; i < users.length; i++) {
-        if(users[i].userName == id && users[i].password == mdp){
-            return true;
-        }
-    }
-    return false;
-*/
+    request.onerror = function () {
+        reject(new Error("Erreur lors de la requête"));
+    };
+});
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -192,9 +198,21 @@ document.addEventListener("DOMContentLoaded", function () {
     var connexionDiv = document.getElementById('connexion');
 
     connexionButton.addEventListener('click', function () {
-        VerifConnexion(document.getElementById('Identifiant').value,document.getElementById('mdp').value);
-        startButton.style.display = 'block';
-        connexionDiv.style.display = 'none';
+    VerifConnexion(document.getElementById('Identifiant').value,document.getElementById('mdp').value)
+    .then(result => {
+        console.log(result.isUserValid+" isvalid")
+        console.log(result.userJson)
+        if(result.isUserValid){
+            startButton.style.display = 'block';
+            connexionDiv.style.display = 'none';
+            updateUserScore(result.userJson);
+        }else{
+            alert("Identifiant ou mot de passe incorrect ou quiz déjà effectué");
+        }
+    })
+    .catch(error => {
+        console.error(error); // Gérez les erreurs ici
+    });
     });
 
     startButton.addEventListener('click', function () {
