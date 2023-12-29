@@ -146,11 +146,13 @@ function submitQuiz() {
 }
 
 function updateUserScore(userJson){
+    
     var updateRequest =
     "https://tabbad.github.io/account.json";
     var updateRequest = new XMLHttpRequest();
     updateRequest.open("PUT", updateRequest);
     updateRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    updateRequest.setRequestHeader("Authorization", "Bearer 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");
     updateRequest.send(JSON.stringify(userJson));
 
     updateRequest.onload = function () {
@@ -160,6 +162,36 @@ function updateUserScore(userJson){
             console.error("Erreur lors de l'enregistrement des modifications");
         }
     };
+/*
+const apiUrl = 'https://tabbad.github.io/account.json';
+
+// Configuration de la requête
+const requestOptions = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json', // Spécifiez le type de contenu en fonction de vos besoins
+    // Vous pouvez également inclure des en-têtes supplémentaires si nécessaire
+    'Authorization': 'Bearer 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',
+  },
+  body: JSON.stringify(userJson) // Convertit les données en format JSON
+};
+
+// Effectuer la requête POST
+fetch(apiUrl, requestOptions)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP! Statut: ${response.status}`);
+    }
+    return response.json(); // Traiter la réponse JSON
+  })
+  .then(data => {
+    // Traiter les données renvoyées par l'API
+    console.log('Réponse de l\'API:', data);
+  })
+  .catch(error => {
+    // Gérer les erreurs
+    console.error('Erreur lors de la requête:', error);
+  });*/
 }
 
 
