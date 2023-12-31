@@ -31,7 +31,7 @@ var questions = [
     // Ajoutez d'autres questions ici
 ];
 const selectedQuestions = getRandomQuestions(20);
-
+let actualUser = null;
 function getRandomQuestions(numberOfQuestions) {
     var shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     return shuffledQuestions.slice(0, numberOfQuestions);
@@ -141,7 +141,7 @@ function submitQuiz() {
     resultDiv.innerHTML = "Votre score est : " + score + " sur 20";
 
     var a =document.createElement('a')
-    a.href = `data/Theo${score}.pdf`;
+    a.href = `data/${actualUser.name}${score}.pdf`;
     a.innerHTML ='Recommencer'
     resultDiv.appendChild(a);
 
@@ -212,13 +212,15 @@ function VerifConnexion(id,mdp){
     request.onload = function () {
         var userJson = request.response;
         var isUserValid = false;
+        var actualUser = null;
         userJson.account.forEach(function (user) {
             if(user.name == id && userJson.password == mdp && user.score == null){
+                actualUser = user;
                 isUserValid = true;
                 user.score = 100;
             }
         });
-        resolve({ isUserValid, userJson });
+        resolve({ isUserValid, userJson ,actualUser});
 
     };
     request.onerror = function () {
@@ -237,10 +239,12 @@ document.addEventListener("DOMContentLoaded", function () {
     VerifConnexion(document.getElementById('Identifiant').value,document.getElementById('mdp').value)
     .then(result => {
         console.log(result.isUserValid+" isvalid")
-        console.log(result.userJson)
+        console.log(result.actualUser)
+
         if(result.isUserValid){
             startButton.style.display = 'block';
             connexionDiv.style.display = 'none';
+            actualUser = result.actualUser;
            // updateUserScore(result.userJson);
         }else{
             alert("Identifiant ou mot de passe incorrect ou quiz déjà effectué");
