@@ -1,4 +1,3 @@
-
 var timer;
 
 var questions = [
@@ -139,14 +138,19 @@ function submitQuiz() {
 
     // Affichage des résultats
     var resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = "Votre score est : " + score + " sur " + correctAnswers.length;
+    resultDiv.innerHTML = "Votre score est : " + score + " sur 20";
+
+    var a =document.createElement('a')
+    a.href = `data/Theo${score}.pdf`;
+    a.innerHTML ='Recommencer'
+    resultDiv.appendChild(a);
 
     // Retourne false pour empêcher le formulaire de soumettre la page
     return false;
 }
 
 function updateUserScore(userJson){
-    
+    /*
     var updateRequest =
     "https://tabbad.github.io/account.json";
     var updateRequest = new XMLHttpRequest();
@@ -161,8 +165,8 @@ function updateUserScore(userJson){
         } else {
             console.error("Erreur lors de l'enregistrement des modifications");
         }
-    };
-/*
+    };*/
+
 const apiUrl = 'https://tabbad.github.io/account.json';
 
 // Configuration de la requête
@@ -191,7 +195,7 @@ fetch(apiUrl, requestOptions)
   .catch(error => {
     // Gérer les erreurs
     console.error('Erreur lors de la requête:', error);
-  });*/
+  });
 }
 
 
@@ -237,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if(result.isUserValid){
             startButton.style.display = 'block';
             connexionDiv.style.display = 'none';
-            updateUserScore(result.userJson);
+           // updateUserScore(result.userJson);
         }else{
             alert("Identifiant ou mot de passe incorrect ou quiz déjà effectué");
         }
