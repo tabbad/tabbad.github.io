@@ -28,6 +28,7 @@ var questions = [
 ];
 const selectedQuestions = getRandomQuestions(20);
 let actualUser = null;
+//let timer = null;
 function getRandomQuestions(numberOfQuestions) {
     var shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     return shuffledQuestions.slice(0, numberOfQuestions);
@@ -96,6 +97,7 @@ function startTimer(duration, display) {
 
     // Utilisez setTimeout pour appeler updateTimer toutes les secondes
     var timerInterval = setInterval(updateTimer, 1000);
+    //return timerInterval;
 }
 
 
@@ -135,17 +137,18 @@ function submitQuiz() {
     // Affichage des résultats
     var resultDiv = document.getElementById('result');
     resultDiv.innerHTML = "Votre score est : " + score + " sur 20";
+    if(score<14){
+        resultDiv.innerHTML =  resultDiv.innerHTML +" Pas de panique, tu peux le repasser le 17 janvier !"
+    }else{
+        resultDiv.innerHTML =  resultDiv.innerHTML +" Félicitation tu as obtenu la partie théorique de la formation !"
+    }
+    resultDiv.innerHTML =  resultDiv.innerHTML +" Votre score est à envoyer à l'adresse mail suivante : mhoren@u-bordeaux.fr"
     actualUser.score = score;
     actualUser.testfait = true;
     updateUserScore(actualUser);
     var quizContainer = document.getElementById('quiz-form');
     quizContainer.style.display = 'none';
-    /* PDF
-    var a =document.createElement('a')
-    a.href = `data/${actualUser.name}${score}.pdf`;
-    a.innerHTML ='Recommencer'
-    resultDiv.appendChild(a);
-*/
+   // clearInterval(timer);
     // Retourne false pour empêcher le formulaire de soumettre la page
     return false;
 }
@@ -184,7 +187,7 @@ function VerifConnexion(id,mdp){
         var isUserValid = false;
         var actualUser = null;
         userJson.forEach(function (user) {
-            if(user.username == id && "JO" == mdp && user.testfait == false){
+            if(user.username == id && "JO2024" == mdp && user.testfait == false){
                 console.log(user)
                 actualUser = user;
                 isUserValid = true;
@@ -225,18 +228,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     startButton.addEventListener('click', function () {
         // Affiche le conteneur du quiz
+        var attention = document.getElementById('attention');
+        attention.style.display = 'none';
         quizContainer.style.display = 'block';
         displayQuestions(selectedQuestions);
         actualUser.testfait = true;
         updateUserScore(actualUser);
 
         // Lance la minuterie ici (ajustez selon vos besoins)
-        var tenMinutes = 60 *15, // 20 minute (à des fins de test, ajustez selon vos besoins)
+        var tenMinutes = 60 *10, // 20 minute (à des fins de test, ajustez selon vos besoins)
         //var tenMinutes = 5, // 20 minute (à des fins de test, ajustez selon vos besoins)
 
         display = document.getElementById('countdown');
-        startTimer(tenMinutes, display);
-
+       // timer = startTimer(tenMinutes, display);
+       startTimer(tenMinutes, display);
         // Désactivez le bouton de démarrage après avoir affiché le quiz
         startButton.disabled = true;
     });
