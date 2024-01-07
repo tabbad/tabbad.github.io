@@ -1,32 +1,28 @@
 var timer;
 
 var questions = [
-    { question: "1 Les lignes du terrain de hand-ball dans la plupart des gymnases sont de couleur :", options: ["Rouge", "Jaune", "Blanche"], answer: "b" },
-    { question: "2 Où remet-on le ballon en jeu après une faute sifflée ?", options: [" Sur le côté du terrain", " A l’endroit de la faute", "Depuis la zone du gardien"], answer: "b" },
-    { question: "3 Le but est accordé quand le ballon :", options: [" Est sur la ligne", " A franchi la moitié de la ligne", " Franchit complètement la ligne"], answer: "c" },
-    { question: "4 Je ne peux pas garder le ballon dans la main à l’arrêt :", options: [" Plus de trois secondes", " Plus de cinq secondes", " Plus de dix secondes"], answer: "a" },
-    { question: "5 Lors d’une remise en jeu, les joueurs adverses doivent se trouver à :", options: [" Un mètre du joueur exécutant la remise en jeu", " Trois mètres du joueur exécutant la remise en jeu ", "Cela n’a pas d’importance "], answer: "b" },
-    { question: "6 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "7. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "8. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "9. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "10. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "11. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "12. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "13. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "14 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "15 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "16. Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "17 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "18 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "19 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "20 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "21 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-    { question: "22 Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
-
-
-    //var correctAnswers = [ "a","a","b","a","a","a","b","a","a","b","a","b","c","a","c","b"]; // Ajoutez les réponses correctes pour chaque question dans l'ordre
-
+    { question: "Les lignes du terrain de hand-ball dans la plupart des gymnases sont de couleur :", options: ["Rouge", "Jaune", "Blanche"], answer: "b" },
+    { question: "Où remet-on le ballon en jeu après une faute sifflée ?", options: [" Sur le côté du terrain", " A l’endroit de la faute", "Depuis la zone du gardien"], answer: "b" },
+    { question: "Le but est accordé quand le ballon :", options: [" Est sur la ligne", " A franchi la moitié de la ligne", " Franchit complètement la ligne"], answer: "c" },
+    { question: "Je ne peux pas garder le ballon dans la main à l’arrêt :", options: [" Plus de trois secondes", " Plus de cinq secondes", " Plus de dix secondes"], answer: "a" },
+    { question: "Lors d’une remise en jeu, les joueurs adverses doivent se trouver à :", options: [" Un mètre du joueur exécutant la remise en jeu", " Trois mètres du joueur exécutant la remise en jeu ", "Cela n’a pas d’importance "], answer: "b" },
+    { question: "Lors d’une touche, le joueur tire et marque le but :", options: [" Le but est refusé", " La touche est donnée à l’adversaire", " Le but est accepté"], answer: "c" },
+    { question: "Le ballon touche le pied, y a- t- il faute ?", options: [" Oui", " Non"], answer: "a" },
+    { question: "Au début de la rencontre, comment est attribué le ballon d’engagement à une équipe ?", options: [" Par tirage au sort", " A l’équipe invitée", " A l’équipe évoluant à domicile"], answer: "a" },
+    { question: "Que siffle l’arbitre si un attaquant pénètre dans la zone du gardien ?", options: [" Jet de 7m (7 mètres)", " « Zone » et ballon au gardien", " Jet franc aux 9m (9 mètres)"], answer: "b" },
+    { question: "En minimes, lors d’un engagement du milieu de terrain, après un but, les joueurs adverses peuvent se tenir dans les deux moitiés de terrain ?", options: [" Vrai", " Faux"], answer: "a" },
+    { question: "En benjamins, après un but, l’engagement se fait depuis le gardien de but. Les attaquants ont le droit d’intercepter le ballon dès la relance du gardien ?", options: [" Vrai", " Faux"], answer: "a" },
+    { question: "Un joueur de champ fait une passe à son gardien, SORTI DE SA ZONE. L’arbitre siffle :", options: [" Rien", " Un jet de 7m", " Un jet franc"], answer: "a" },
+    { question: "Un joueur ne pose pas son pied sur la ligne de touche pour la remise en jeu :", options: [" La remise en jeu est pour l’équipe adverse", " La remise en jeu est à refaire après correction", " Le jeu se poursuit"], answer: "b" },
+    { question: "Si un joueur fait une grosse faute, Peut- il être exclu du terrain ?", options: [" Oui", " Non"], answer: "a" },
+    { question: "En match, chaque match est dirigé par deux arbitres assistés par un (ou des) secrétaire(s), un chronométreur et parfois des arbitres de zone.", options: [" Vrai", " Faux"], answer: "a" },
+    { question: "Peut-on dribbler à 2 mains ?", options: [" Oui", " Non"], answer: "b" },
+    { question: "Peut- on changer de main en dribblant ?", options: [" Oui", " Non"], answer: "a" },
+    { question: "Un but est confirmé par :", options: [" Un coup de sifflet", " Deux coups de sifflet", " Trois coups de sifflet"], answer: "b" },
+    { question: "Un joueur tirant dans les 9m est poussé par un défenseur dans le dos ou sur le côté. L’arbitre siffle ?", options: [" Jet franc à 9m", " Jet de 7m", " Jet de 7m + exclusion temporaire du défenseur"], answer: "c" },
+    { question: "Que doit faire le joueur qui a le ballon quand l’arbitre siffle une faute contre son équipe ?", options: [" Il doit poser le ballon au sol", " Il lance le ballon à l’arbitre", " Il va se replacer en défense puis donne le ballon aux adversaires"], answer: "a" },
+    { question: "Le début d’une partie est signalé par le coup de sifflet de l’arbitre. Comment est signalée la fin de la partie ?", options: [" Par un coup de sifflet de l’arbitre", " Par deux coups de sifflet de l’arbitre", " Par trois coups de sifflet de l’arbitre"], answer: "c" },
+    { question: "Lorsqu’une faute est commise par la défense, entre la ligne des 9m et la zone du gardien, le ballon est rendu à l’attaque. Où s’effectue le jet franc?", options: [" A l’endroit de la faute", " A 9m", " A 7m"], answer: "b" },
 
     // Ajoutez d'autres questions ici
 ];
@@ -139,63 +135,37 @@ function submitQuiz() {
     // Affichage des résultats
     var resultDiv = document.getElementById('result');
     resultDiv.innerHTML = "Votre score est : " + score + " sur 20";
-
+    actualUser.score = score;
+    actualUser.testfait = true;
+    updateUserScore(actualUser);
+    var quizContainer = document.getElementById('quiz-form');
+    quizContainer.style.display = 'none';
+    /* PDF
     var a =document.createElement('a')
     a.href = `data/${actualUser.name}${score}.pdf`;
     a.innerHTML ='Recommencer'
     resultDiv.appendChild(a);
-
+*/
     // Retourne false pour empêcher le formulaire de soumettre la page
     return false;
 }
 
 function updateUserScore(userJson){
-    /*
-    var updateRequest =
-    "https://tabbad.github.io/account.json";
-    var updateRequest = new XMLHttpRequest();
-    updateRequest.open("PUT", updateRequest);
-    updateRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    updateRequest.setRequestHeader("Authorization", "Bearer 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");
-    updateRequest.send(JSON.stringify(userJson));
+var jsonString = JSON.stringify(userJson);
+var xhr = new XMLHttpRequest();
+xhr.open('PUT','https://back-jo.vercel.app/update', true);
+xhr.setRequestHeader('Content-Type', 'application/json');
 
-    updateRequest.onload = function () {
-        if (updateRequest.status === 200) {
-            console.log("Modification enregistrée avec succès");
-        } else {
-            console.error("Erreur lors de l'enregistrement des modifications");
-        }
-    };*/
-
-const apiUrl = 'https://tabbad.github.io/account.json';
-
-// Configuration de la requête
-const requestOptions = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json', // Spécifiez le type de contenu en fonction de vos besoins
-    // Vous pouvez également inclure des en-têtes supplémentaires si nécessaire
-    'Authorization': 'Bearer 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',
-  },
-  body: JSON.stringify(userJson) // Convertit les données en format JSON
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    console.log('La requête a abouti avec succès.');
+    console.log(xhr.responseText);
+  } else {
+    console.error('La requête a échoué avec le statut : ' + xhr.status);
+  }
 };
 
-// Effectuer la requête POST
-fetch(apiUrl, requestOptions)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Erreur HTTP! Statut: ${response.status}`);
-    }
-    return response.json(); // Traiter la réponse JSON
-  })
-  .then(data => {
-    // Traiter les données renvoyées par l'API
-    console.log('Réponse de l\'API:', data);
-  })
-  .catch(error => {
-    // Gérer les erreurs
-    console.error('Erreur lors de la requête:', error);
-  });
+xhr.send(jsonString);
 }
 
 
@@ -203,7 +173,7 @@ function VerifConnexion(id,mdp){
     return new Promise((resolve, reject) => {
 
     var requestURL =
-    "https://tabbad.github.io/account.json";
+    "https://back-jo.vercel.app/";
     var request = new XMLHttpRequest();
 
     request.open("GET", requestURL);
@@ -213,11 +183,11 @@ function VerifConnexion(id,mdp){
         var userJson = request.response;
         var isUserValid = false;
         var actualUser = null;
-        userJson.account.forEach(function (user) {
-            if(user.name == id && userJson.password == mdp && user.score == null){
+        userJson.forEach(function (user) {
+            if(user.username == id && "JO" == mdp && user.testfait == false){
+                console.log(user)
                 actualUser = user;
                 isUserValid = true;
-                user.score = 100;
             }
         });
         resolve({ isUserValid, userJson ,actualUser});
@@ -238,14 +208,12 @@ document.addEventListener("DOMContentLoaded", function () {
     connexionButton.addEventListener('click', function () {
     VerifConnexion(document.getElementById('Identifiant').value,document.getElementById('mdp').value)
     .then(result => {
-        console.log(result.isUserValid+" isvalid")
-        console.log(result.actualUser)
 
         if(result.isUserValid){
             startButton.style.display = 'block';
             connexionDiv.style.display = 'none';
             actualUser = result.actualUser;
-           // updateUserScore(result.userJson);
+            updateUserScore(actualUser);
         }else{
             alert("Identifiant ou mot de passe incorrect ou quiz déjà effectué");
         }
@@ -259,11 +227,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Affiche le conteneur du quiz
         quizContainer.style.display = 'block';
         displayQuestions(selectedQuestions);
-
+        actualUser.testfait = true;
+        updateUserScore(actualUser);
 
         // Lance la minuterie ici (ajustez selon vos besoins)
-        var tenMinutes = 60 *20, // 20 minute (à des fins de test, ajustez selon vos besoins)
-            display = document.getElementById('countdown');
+        var tenMinutes = 60 *15, // 20 minute (à des fins de test, ajustez selon vos besoins)
+        //var tenMinutes = 5, // 20 minute (à des fins de test, ajustez selon vos besoins)
+
+        display = document.getElementById('countdown');
         startTimer(tenMinutes, display);
 
         // Désactivez le bouton de démarrage après avoir affiché le quiz
