@@ -1,4 +1,3 @@
-var timer;
 
 var questions = [
     { question: "Les lignes du terrain de hand-ball dans la plupart des gymnases sont de couleur :", options: ["Rouge", "Jaune", "Blanche"], answer: "b" },
@@ -28,7 +27,7 @@ var questions = [
 ];
 const selectedQuestions = getRandomQuestions(20);
 let actualUser = null;
-//let timer = null;
+let questionTimer = null;
 function getRandomQuestions(numberOfQuestions) {
     var shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     return shuffledQuestions.slice(0, numberOfQuestions);
@@ -97,7 +96,7 @@ function startTimer(duration, display) {
 
     // Utilisez setTimeout pour appeler updateTimer toutes les secondes
     var timerInterval = setInterval(updateTimer, 1000);
-    //return timerInterval;
+    questionTimer = timerInterval;
 }
 
 
@@ -148,7 +147,7 @@ function submitQuiz() {
     updateUserScore(actualUser);
     var quizContainer = document.getElementById('quiz-form');
     quizContainer.style.display = 'none';
-   // clearInterval(timer);
+    clearInterval(questionTimer);
     // Retourne false pour empêcher le formulaire de soumettre la page
     return false;
 }
