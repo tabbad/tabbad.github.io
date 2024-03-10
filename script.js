@@ -153,21 +153,21 @@ function submitQuiz() {
 }
 
 function updateUserScore(userJson){
-var jsonString = JSON.stringify(userJson);
-var xhr = new XMLHttpRequest();
-xhr.open('PUT','https://back-jo.vercel.app/update', true);
-xhr.setRequestHeader('Content-Type', 'application/json');
+    var jsonString = JSON.stringify(userJson);
+    var xhr = new XMLHttpRequest();
+    xhr.open('PUT','https://back-jo.vercel.app/update', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    console.log('La requête a abouti avec succès.');
-    console.log(xhr.responseText);
-  } else {
-    console.error('La requête a échoué avec le statut : ' + xhr.status);
-  }
-};
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log('La requête a abouti avec succès.');
+            console.log(xhr.responseText);
+        } else {
+            console.error('La requête a échoué avec le statut : ' + xhr.status);
+        }
+    };
 
-xhr.send(jsonString);
+    xhr.send(jsonString);
 }
 
 
@@ -210,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
     connexionButton.addEventListener('click', function () {
     VerifConnexion(document.getElementById('Identifiant').value,document.getElementById('mdp').value)
     .then(result => {
-
         if(result.isUserValid){
             startButton.style.display = 'block';
             connexionDiv.style.display = 'none';

@@ -9,7 +9,7 @@
 <body>
     <div id="header">
         
-        <div id="logo">
+        <div id="logoUNSS">
             <img src="data/logoUNSS.png" alt="LogoUNSS">
         </div>
         <div id="title">
@@ -17,16 +17,25 @@
             <h2>Handball</h2>
         </div>
 
-    <div id="menu">
-        <h2><a href="cours.html">Cours</a> </h2>
-        <h2> <a href="quiz.html">Quiz</a></h2>
-        <h2><a href="eval.html">Test</a></h2>
-    </div>
+        <div id="menu">
+            <div class="sousMenu">
+                <h2><a href="cours.html">Cours</a>  </h2>  
+                <img src="data/logoCoursReduis.jpg" alt="Logocours">
+            </div> 
+            <div class="sousMenu">
+                <h2> <a href="quiz.html">Quiz</a></h2> 
+                <img src="data/LogoQuiz.png" alt="LogoQuiz">
+            </div>
+            <div class="sousMenu">
+                <h2><a href="eval.html">Test</a></h2> 
+                <img src="data/LogoTestReduis.jpg" alt="Logotest">
+            </div>
+        </div>
 </div>
 <div id="timer">Temps restant : <span id="countdown">10:00</span></div>
 
 <div id="quiz-container">
-    <h2>Mon Quiz HTML</h2>
+    <h1>Evaluations </h1>
     <div id="connexion">
         <label for="Identifiant">Identifiant:</label>
         <input type="text" id="Identifiant" name="Identifiant" required  />
@@ -36,8 +45,8 @@
     </div>
     <button style="display: none;" id="start-quiz-button">Commencer le quiz</button>
     <div id="attention">
-    <p>Avant de commencer le test, assurez-vous d'avoir compris le cours et réalisé le quiz d'entraînement. </p>
-    <p>ATTENTION, pour la réalisation du test, vous avez 10 minutes pour répondre à 20 questions. Si vous rechargez la page, que vous quittez la page vous ne pourrez pas refaire le test. Vous avez qu'une seule chance mais pas de panique, une deuxième tentative sera donnée le 17 janvier.</p>
+        <p>Avant de commencer le test, assurez-vous d'avoir compris le cours et réalisé le quiz d'entraînement. </p>
+        <p>ATTENTION, pour la réalisation du test, vous avez 10 minutes pour répondre à 20 questions. Si vous rechargez la page, que vous quittez la page vous ne pourrez pas refaire le test. Vous avez qu'une seule chance mais pas de panique, une deuxième tentative sera donnée le 17 janvier.</p>
     </div>
     <form  style="display: none;" id="quiz-form" onsubmit="return submitQuiz()">
         <div id="questions-container"></div>
