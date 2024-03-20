@@ -71,3 +71,9 @@ color: black;
 h1{
     text-align: center;
 }
+.incorrect-answer{
+    color: red;
+}
+.correct-answer {
+    color: green;
+}
