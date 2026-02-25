@@ -1,43 +1,158 @@
+<!DOCTYPE html>
 <html lang="fr">
-<link href="style.css" rel="stylesheet" type="text/css" />
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Surprise</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f1f5 0%, #ee5a24 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .envelope-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .envelope-image {
+            max-width: 700px;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .click-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #d1cbcd, #ee5a24);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(238, 90, 36, 0.5);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .click-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.7);
+        }
+
+        .click-button:active {
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+
+        .information-image {
+            max-width: 600px;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="header">
-        
-            <div id="logoUNSS">
-                <img src="data/logoUNSS.png" alt="LogoUNSS">
-            </div>
-            <div id="titreEtImage">
-                <img src="data/arbitre1.png" alt="arbitre">
-          
-                <div id="title">
-                    <h1>Formation Jeunes Officiels</h1>
-                    <h2>Handball</h2>
-                </div>
-                <img src="data/arbitre2.png" alt="arbitre">
+    <div class="container">
+        <!-- Enveloppe avec bouton -->
+        <div id="envelopeContainer" class="envelope-container">
+            <img src="Enveloppe.png" alt="Enveloppe" class="envelope-image">
+            <button id="clickBtn" class="click-button">Cliquez ici</button>
         </div>
-  
-            <div id="menu">
-                <div class="sousMenu">
-                    <h2><a href="cours.html">Cours</a>  </h2>  
-                    <img src="data/logoCoursReduis.jpg" alt="Logocours">
-                </div> 
-                <div class="sousMenu">
-                    <h2> <a href="quiz.html">Quiz</a></h2> 
-                    <img src="data/LogoQuiz.png" alt="LogoQuiz">
-                </div>
-                <div class="sousMenu">
-                    <h2><a href="eval.html">Test</a></h2> 
-                    <img src="data/LogoTestReduis.jpg" alt="Logotest">
-                </div>
-            </div>
+
+        <!-- Image Information (cachée au départ) -->
+        <img id="informationImage" src="Information.png" alt="Information" class="information-image hidden">
     </div>
 
-   
+    <script>
+        document.getElementById('clickBtn').addEventListener('click', function() {
+            // Jouer le son d'anniversaire
+            const birthdaySound = new Audio('./son.mp3');
+            birthdaySound.volume = 0.7;
+            birthdaySound.play().catch(e => console.log('Audio autoplay blocked'));
+
+            // Lancer les confettis
+            const duration = 3000;
+            const end = Date.now() + duration;
+
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dfe6e9', '#fd79a8'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 7,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.6 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 7,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.6 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+
+            // Confetti central
+            confetti({
+                particleCount: 150,
+                spread: 100,
+                origin: { x: 0.5, y: 0.5 },
+                colors: colors
+            });
+
+            // Masquer l'enveloppe et afficher l'information après un court délai
+            setTimeout(function() {
+                document.getElementById('envelopeContainer').classList.add('hidden');
+                document.getElementById('informationImage').classList.remove('hidden');
+            }, 500);
+        });
+    </script>
 </body>
 </html>
